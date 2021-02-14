@@ -6,25 +6,25 @@ const res = await req.loadJSON()
 
 if (config.runsInWidget) {
     // create and show widget
-	let w = new ListWidget()
+    let w = new ListWidget()
     w.backgroundColor = new Color("#53d769")
-	
+    
     let titleTxt = w.addText(`Total Vaccinations: ${res.IRL.total_vaccinations}`)
     titleTxt.textColor = Color.white()
     titleTxt.font = Font.systemFont(14)
     w.addSpacer(5)
-	
+    
     let subTxtFirstDose = w.addText(`First Dose: ${res.IRL.people_vaccinated}`)
     subTxtFirstDose.textColor = Color.white()
     subTxtFirstDose.textOpacity = 0.8
     subTxtFirstDose.font = Font.systemFont(12)
-	w.addSpacer(2)
-	
-	let subTxtSecondDose = w.addText(`Fully Vaccinated: ${res.IRL.people_fully_vaccinated}`)
+    w.addSpacer(2)
+    
+    let subTxtSecondDose = w.addText(`Fully Vaccinated: ${res.IRL.people_fully_vaccinated}`)
     subTxtSecondDose.textColor = Color.white()
     subTxtSecondDose.textOpacity = 0.8
     subTxtSecondDose.font = Font.systemFont(12)
-	
+    
     Script.setWidget(w)
     Script.complete()
 } else {
@@ -38,9 +38,9 @@ if (config.runsInWidget) {
     table.addRow(row)
 
     // fill data
-	table.addRow(createRow("Total Vaccinations", res.IRL.total_vaccinations))
+    table.addRow(createRow("Total Vaccinations", res.IRL.total_vaccinations))
     table.addRow(createRow("First Dose Vaccinations", res.IRL.people_vaccinated))
-	table.addRow(createRow("Fully Vaccinated", res.IRL.people_fully_vaccinated))
+    table.addRow(createRow("Fully Vaccinated", res.IRL.people_fully_vaccinated))
 
     // present table
     table.present()
